@@ -1,0 +1,24 @@
+package cr.ac.tec.design.prototype;
+
+public class Camion extends Car{
+    public String tipo_cajuela;
+
+    public Camion(){
+    }
+    public Camion(Camion target){
+        super(target);
+        if(target != null){
+            this.tipo_cajuela = target.tipo_cajuela;
+        }
+    }
+    @Override
+    public Car clone(){
+        return new Camion(this);
+    }
+    @Override
+    public boolean equals(Object object2){
+        if(!(object2 instanceof Camion) || !super.equals(object2))return false;
+        Camion car2 = (Car)object2;
+        return car2.tipo_cajuela == tipo_cajuela;
+    }
+}
